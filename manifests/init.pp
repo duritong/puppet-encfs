@@ -1,3 +1,7 @@
+# install encfs
 class encfs {
-  include encfs::base
+  case $::osfamily {
+    'RedHat': { include encfs::redhat }
+    default: { include encfs::base }
+  }
 }
